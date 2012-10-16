@@ -385,6 +385,11 @@ class mod_quiz_mod_form extends moodleform_mod {
         // -------------------------------------------------------------------------------
         $this->standard_coursemodule_elements();
 
+        // Check and act on whether setting outcomes is considered an advanced setting.
+        if ($quizconfig->outcomes_adv) {
+            $mform->setAdvanced('modoutcomes');
+        }
+
         // -------------------------------------------------------------------------------
         $this->add_action_buttons();
     }
