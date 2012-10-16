@@ -417,6 +417,9 @@ if ($hassiteconfig || has_capability('moodle/question:config', $systemcontext)) 
             }
         }
     }
+    
+    // Question default settings.
+    include("$CFG->dirroot/admin/qdefaults.php");
 }
 
 // Plagiarism plugin settings
