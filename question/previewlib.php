@@ -120,17 +120,14 @@ class question_preview_options extends question_display_options {
     public function __construct($question) {
         $question_defaults = get_config('question');
         $this->behaviour = isset($question_defaults->behaviour)
-            ? $question_defaults->behaviour : 'adaptive';
-        $this->maxmark = isset($question_defaults->maxmark)
-            ? $question_defaults->maxmark : 0;
-        $this->variant = isset($question_defaults->variant)
-            ? $question_defaults->variant : 0;
+            ? $question_defaults->behaviour : 'deferredfeedback';
+        $this->maxmark = $question->defaultmark;
+        $this->variant = null;
         $this->correctness = isset($question_defaults->correctness)
             ? $question_defaults->correctness : self::HIDDEN;
         $this->marks = isset($question_defaults->marks)
-            ? $question_defaults->marks : self::HIDDEN;
-        $this->markdp = isset($question_defaults->markdp)
-            ? $question_defaults->markdp : 0;
+            ? $question_defaults->marks : self::MARK_AND_MAX;
+        $this->markdp = get_config('quiz', 'decimalpoints');
         $this->feedback = isset($question_defaults->feedback)
             ? $question_defaults->feedback : self::HIDDEN;
         $this->numpartscorrect = $this->feedback;

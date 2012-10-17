@@ -45,12 +45,6 @@ if ($hassiteconfig) {
         get_string('howquestionsbehave', 'question'), '',
         'adaptive', $behaviours));
 
-    $settings->add(new admin_setting_configtext('question/maxmark',
-        get_string('markedoutof', 'question'), '', 0, PARAM_INT, 2));
-
-    $settings->add(new admin_setting_configtext('question/variant',
-        get_string('questionvariant', 'question'), '', 0, PARAM_INT, 2));
-
     $settings->add(new admin_setting_configselect('question/correctness',
         get_string('whethercorrect', 'question'), '',
         question_display_options::HIDDEN, $hiddenofvisible));
@@ -63,10 +57,6 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_configselect('question/marks',
         get_string('marks', 'question'), '', question_display_options::HIDDEN, $marksoptions));
         
-    $dpoptions = question_engine::get_dp_options();
-    $settings->add(new admin_setting_configselect('question/markdp',
-        get_string('decimalplacesingrades', 'question'), '', 0, $dpoptions));
-
     $settings->add(new admin_setting_configselect('question/feedback',
         get_string('specificfeedback', 'question'), '',
         question_display_options::HIDDEN, $hiddenofvisible));
