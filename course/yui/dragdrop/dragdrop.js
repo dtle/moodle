@@ -194,6 +194,14 @@ YUI.add('moodle-course-dragdrop', function(Y) {
                         // Classic bubble sort algorithm is applied to the section
                         // nodes between original drag node location and the new one.
                         do {
+                            // Check if the flag donotsort has been sepcified by
+                            // the function M.course.format.process_sections().
+                            // Some course formats may not use sequential list which means
+                            // the bubble sort is uncessary.
+                            if (sectionlist.donotsort) {
+                                break;
+                            }
+
                             var swapped = false;
                             for (var i = loopstart; i <= loopend; i++) {
                                 if (this.get_section_id(sectionlist.item(i-1)) > this.get_section_id(sectionlist.item(i))) {
@@ -288,7 +296,7 @@ YUI.add('moodle-course-dragdrop', function(Y) {
          */
         setup_for_section : function(baseselector) {
             Y.Node.all(baseselector).each(function(sectionnode) {
-                var resources = sectionnode.one('.'+CSS.CONTENT+' ul.'+CSS.SECTION);
+                var resources = sectionnode.one('.'+CSS.CONTENT+' .'+CSS.SECTION);
                 // See if resources ul exists, if not create one
                 if (!resources) {
                     var resources = Y.Node.create('<ul></ul>');

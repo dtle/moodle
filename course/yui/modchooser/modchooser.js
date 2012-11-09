@@ -1,7 +1,7 @@
 YUI.add('moodle-course-modchooser', function(Y) {
     var CSS = {
         PAGECONTENT : 'div#page-content',
-        SECTION : 'li.section',
+        SECTION : '.section',
         SECTIONMODCHOOSER : 'span.section-modchooser-link',
         SITEMENU : 'div.block_site_main_menu',
         SITETOPIC : 'div.sitetopic'
