@@ -102,6 +102,9 @@ YUI.add('moodle-course-dragdrop', function(Y) {
         },
 
         get_section_id : function(node) {
+            if (!node) {
+                return 0;
+            }
             return Number(node.get('id').replace(/section-/i, ''));
         },
 
@@ -331,10 +334,16 @@ YUI.add('moodle-course-dragdrop', function(Y) {
         },
 
         get_section_id : function(node) {
+            if (!node) {
+                return 0;
+            }
             return Number(node.get('id').replace(/section-/i, ''));
         },
 
         get_resource_id : function(node) {
+            if (!node) {
+                return 0;
+            }
             return Number(node.get('id').replace(/module-/i, ''));
         },
 
