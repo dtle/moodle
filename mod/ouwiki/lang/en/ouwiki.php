@@ -500,3 +500,6 @@ $string['showannotationicons'] = 'Show annotations';
 $string['hideannotationicons'] = 'Hide annotations';
 $string['errorcoursesubwiki'] = 'Must be &lsquo;No groups&rsquo; unless sub-wikis option is &lsquo;One wiki per group&rsquo;';
 $string['errorgroupssubwiki'] = 'Must be enabled when sub-wikis option is &lsquo;One wiki per group&rsquo;';
+
+$string['add']='Add';
+$string['cancel']='Cancel';
