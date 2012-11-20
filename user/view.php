@@ -288,8 +288,9 @@ if (!isset($hiddenfields['mycourses'])) {
         $courselisting = '';
         foreach ($mycourses as $mycourse) {
             if ($mycourse->category) {
-                $ccontext = context_course::instance($mycourse->id);;
-                $cfullname = format_string($mycourse->fullname, true, array('context' => $ccontext));
+                context_helper::preload_from_record($mycourse);
+                $ccontext = context_course::instance($mycourse->id);
+                $cfullname = format_string($ccontext->get_context_name(false), true, array('context' => $ccontext));
                 if ($mycourse->id != $course->id){
                     $class = '';
                     if ($mycourse->visible == 0) {
