@@ -66,13 +66,20 @@ if ($entries) {
 }
 
 if (!empty($courseid)) {
-    $strglossaries = get_string('modulenameplural', 'glossary');
-    $strsearch = get_string('search');
+    if ($eid) {
+        $PAGE->navbar->add($entry->concept);
+        $PAGE->set_title(strip_tags("{$course->shortname}: {$glossary->name} {$entry->concept}"));
+        $PAGE->set_heading($course->fullname);
+    }
+    if ($concept) {
+        $strglossaries = get_string('modulenameplural', 'glossary');
+        $strsearch = get_string('search');
 
-    $PAGE->navbar->add($strglossaries);
-    $PAGE->navbar->add($strsearch);
-    $PAGE->set_title(strip_tags("$course->shortname: $strglossaries $strsearch"));
-    $PAGE->set_heading($course->fullname);
+        $PAGE->navbar->add($strglossaries);
+        $PAGE->navbar->add($strsearch);
+        $PAGE->set_title(strip_tags("{$course->shortname}: $strglossaries $strsearch"));
+        $PAGE->set_heading($course->fullname);
+    }
     echo $OUTPUT->header();
 } else {
     echo $OUTPUT->header();    // Needs to be something here to allow linking back to the whole glossary
